@@ -1,0 +1,23 @@
+{
+  "name": "wildhab_fire",
+  "version": "1.0.0",
+  "description": "Testing Firestore database",
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^9.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toddalbert/wildhab_fire.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toddalbert/wildhab_fire/issues"
+  },
+  "homepage": "https://github.com/toddalbert/wildhab_fire#readme"
+}
