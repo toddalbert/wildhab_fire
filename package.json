@@ -4,6 +4,7 @@
   "description": "Testing Firestore database",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.17.1",
     "firebase-admin": "^9.4.2"
   },
   "devDependencies": {},
