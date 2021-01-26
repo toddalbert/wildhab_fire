@@ -37,3 +37,28 @@ exports.getSingleEvent = (req, res) => {
       })
     })
 }
+
+exports.deleteEvent = (req, res) => {
+  if(!firestore) {
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount)
+    })
+    firestore = admin.firestore()
+  }
+  eventsRef.doc(req.params.eventId).delete()
+    .then(() => {
+      res.status(200).json({
+        status: 'success',
+        message: 'Event deleted successfully',
+        statusCode: 200
+      })
+    })
+    .catch(err => {
+      res.status(500).json({
+        status: 'error',
+        data: err,
+        message: 'Error deleting event',
+        statusCode: 500
+      })
+    })
+}
