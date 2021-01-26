@@ -1,9 +1,11 @@
 const admin = require("firebase-admin")
 const serviceAccount = require("../../wildhabitatexercise-firebase-adminsdk-z62ei-d3c450485c.json")
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-})
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+  })
+}
 const firestore = admin.firestore()
 const eventsRef = firestore.collection('events')
 
