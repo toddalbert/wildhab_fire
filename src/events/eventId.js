@@ -62,3 +62,35 @@ exports.deleteEvent = (req, res) => {
       })
     })
 }
+
+exports.updateEvent = (req, res) => {
+  console.log('here is the req', req)
+	if (!firestore) {
+		admin.initializeApp({
+			credential: admin.credential.cert(serviceAccount),
+		})
+		firestore = admin.firestore()
+	}
+	const data = {
+		location: 'Boca Code',
+		state: 'FL',
+	}
+	eventsRef
+		.doc(req.params.eventId)
+		.update(data)
+		.then(() => {
+			res.status(200).json({
+				status: 'Item updated',
+				message: 'Event was updated',
+				statusCode: 200,
+			})
+		})
+		.catch(err => {
+			res.status(500).json({
+				status: 'nasty error',
+				data: err,
+				message: 'Error updating Event',
+				statusCode: 500,
+			})
+		})
+}
