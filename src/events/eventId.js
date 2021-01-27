@@ -9,6 +9,7 @@ if (!admin.apps.length) {
 const firestore = admin.firestore()
 const eventsRef = firestore.collection('events')
 
+
 exports.getSingleEvent = (req, res) => {
   if(!firestore) {
     admin.initializeApp({
@@ -16,6 +17,7 @@ exports.getSingleEvent = (req, res) => {
     })
     firestore = admin.firestore()
   }
+  
   const { eventId } = req.params
   eventsRef.doc(eventId).get()
     .then(doc => {
