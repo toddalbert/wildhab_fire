@@ -70,11 +70,30 @@ exports.deletePerson = (req, res) => {
 		})
 }
 
-// update User
 exports.updatePerson = (req, res) => {
 	if (!firestore) {
-		admin.initializeApp({
-			credential: admin.credential.cert(serviceAccount),
-		})
+	  admin.initializeApp({
+		credential: admin.credential.cert(serviceAccount),
+	  });
+	  firestore = admin.firestore();
 	}
+	personRef
+	  .doc(req.params.userId)
+	  .update(req.body)
+	  .then(() => {
+		res.status(200).json({
+		  status: "updated",
+		  message: "Person updated",
+		  statusCode: 200,
+		});
+		return
+	  })
+	  .catch((err) => {
+		res.status(500).json({
+		  status: "error",
+		  data: err,
+		  message: "Error updating Person",
+		  statusCode: 500,
+		});
+	  });
 }
