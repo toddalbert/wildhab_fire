@@ -8,7 +8,7 @@ const { getSingleEvent, deleteEvent, updateEvent } = require('./src/events/event
 
 const app = express()
 app.use(bodyParser.json())
-const port = 3000
+const port = 5001
 
 app.get('/events', getEvents)
 app.get('/events/:eventId', getSingleEvent)
