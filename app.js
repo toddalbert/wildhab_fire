@@ -21,9 +21,7 @@ app.post('/people', postPerson)
 app.get('/person/:personId', getPerson)
 app.patch('/person/:personId', updatePerson)
 
-app.get('/', (req, res) => {
-	res.status(200).send('Hello World!')
-})
+
 
 app.listen(port, () => {
 	console.log('listening on http://localhost:' + port)
