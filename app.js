@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+
 const { getEvents, postEvent } = require('./src/events')
 const { getPeople, postPerson } = require('./src/users')
 const { getPerson } = require('./src/users/users.js')
